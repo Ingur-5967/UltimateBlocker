@@ -28,7 +28,7 @@ public class DisabledInteractItem implements Listener {
         Player p = e.getPlayer();
         if(p.hasPermission("UltimateBlocker.Bynpass") || p.isOp()) return;
         if(!ConfigManager.getBoolean("DisabledInteractItem")) return;
-        if(e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_AIR) return;
+        if(e.getAction() != Action.RIGHT_CLICK_AIR) return;
         if (!list.contains(p.getInventory().getItemInHand().getType().name())) return;
         p.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
         e.setCancelled(true);
